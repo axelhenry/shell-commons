@@ -1,12 +1,12 @@
 #!/bin/sh
 
 #   arguments username userid groupname groupid password
-function emptyProcess {
+emptyProcess () {
     echo "$0 ($1, $2, $3, $4, $5)"
 }
 
 #   arguments username userid groupname groupid password optionalFunction
-function createUser {
+createUser () {
     userExists=$(grep "^$1:" /etc/passwd)
     if [ -z "${userExists}" ]; then
         _gid=$(grep ":$4:" /etc/group | cut -d: -f1)
